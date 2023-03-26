@@ -6,15 +6,12 @@ pipeline {
     }
 
     stages{
-        stage('enable docker'){
-            steps{
-                sh 'sudo chmod 777 /var/run/docker.sock'
-            }
-        }
 
         stage('Create Docker image'){
             steps{
-                sh 'docker build -t praaaws/docker-react:v1 -f Dockerfile.dev .'
+                script{
+                    docker.build('praaaws/docker-react:v1', '-f Dockerfile.dev .')
+                }
             }
         }
 
