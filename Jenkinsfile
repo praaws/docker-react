@@ -6,8 +6,14 @@ pipeline {
     }
 
     stages{
+        stage('Install Docker and verify version'){
+            steps{
+                sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
+                sh 'sh get-docker.sh '
+            }
+        }
+
         stage('Create Docker image'){
-            agent any
             steps{
                 sh 'docker build -t praaaws/docker-react:v1 -f Dockerfile.dev .'
             }
