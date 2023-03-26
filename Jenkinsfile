@@ -6,10 +6,9 @@ pipeline {
     }
 
     stages{
-        stage('Install Docker and verify version'){
+        stage('enable docker'){
             steps{
-                sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
-                sh 'sh get-docker.sh '
+                sh 'sudo chmod 777 /var/run/docker.sock'
             }
         }
 
