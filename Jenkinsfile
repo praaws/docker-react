@@ -12,6 +12,7 @@ pipeline {
                 sh 'sh get-docker.sh '
                 sh  'docker version'
             }
+        }
 
         stage('Create Docker image'){
             steps{
@@ -27,4 +28,3 @@ pipeline {
 
         }
     }
-}
