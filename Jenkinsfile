@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    triggers{
+        githubPush()
+    }
+
     stages{
         stage('Install Docker and verify version'){
             steps{
